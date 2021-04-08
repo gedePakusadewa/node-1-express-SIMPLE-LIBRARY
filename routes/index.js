@@ -1,4 +1,5 @@
 const express = require('express');
+const controller = require('../controllers/PublicController');
 const router = express.Router();
 
 router.get('/', function(req, res){
@@ -16,6 +17,8 @@ router.get('/about', function(req, res){
 	res.render('about');
 });
 
+router.get('/book-list', controller.getBookListView);
 
+router.get('/add', controller.setDataBookList);
 
-module.exports = router
+module.exports = router;
