@@ -18,17 +18,6 @@
 		nav > div{
 			padding-right:10px;
 		}
-
-		.flex-row{
-			display:flex;
-			flex-direction:row;
-			margin-top:30px;
-		}
-
-		.container-book{
-			border:1px solid black;
-			margin:0 10px 0 0;
-		}
 	</style>
 	<body>
 		<nav>
@@ -37,16 +26,13 @@
 			<div><a href = "/about">About</a></div>
 			<div><a href = "/login">Login</a></div>
 		</nav>
-		<div class = "flex-row" >
+		<div>
 			<% for(var i = 0; i < result.length; i++) { %>
-				<div class = "container-book">
-						<img src = "<%= result[i].path_img %>"  width = "100" height = "100"/><br />
-						Title : <%= result[i].title %><br />
-						Author: <%= result[i].author %><br />
-						Year  : <%= result[i].year %><br />
-						Status: <%= result[i].rent_status %><br />
-					<br />
-				</div>
+				<%= result[i].code %><br />
+				<%= result[i].author %><br />
+				<%= result[i].pages %><br />
+				<%= result[i].year %><br />
+				<%= result[i].rent_status %><br /><hr /><br />
 			<% } %>
 		</div>
 	</body>

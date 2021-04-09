@@ -3,11 +3,13 @@ const bookList = require('../models/book-list');
 const db = require('../models/database');
 
 module.exports = {
+
+	//only read all data from model 
 	getBookListView:function(req, res){
-		console.log('getBookListView');
-		bookList.find({})
+		//console.log('getBookListView');
+		bookList.find()
 		.then(result => {
-			res.send('book-list', {result : result});
+			res.render('book-list', {result:result});
 		})
 		.catch( err => {
 			console.log(err);
@@ -16,13 +18,13 @@ module.exports = {
 
 	setDataBookList:function(req, res){
 		const dat = new bookList({
-			code: "q81isp",
-			title: "Command Them Now",
-			author: "Robert Ting Tong",
-			pages: "90",
-			year: "2020",
+			code: "gt10de",
+			title: "Keyboard Is Mouse Owning Rig",
+			author: "Orale Dillale",
+			pages: "756",
+			year: "2017",
 			rent_status: false,
-			path_img: "/cover/q81isp.jpg"
+			path_img: "/cover/gt10de.jpg"
 
 		});
 

@@ -9,6 +9,7 @@ app.set("views", "./views");
 app.set("view engine", "ejs");
 
 app.use('/', route);
+app.use(express.static('public'));
 
 var server = app.listen(3000, "127.0.0.1", function(){
 	console.log("http://" + server.address().address + ":" + server.address().port);
