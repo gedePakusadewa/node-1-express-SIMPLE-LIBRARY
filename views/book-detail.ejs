@@ -38,19 +38,17 @@
 			<div><a href = "/login">Login</a></div>
 		</nav>
 		<div class = "flex-row" >
-
-			<% for(var i = 0; i < result.length; i++) { %>
-				<a href = "/book-detail/<%= result[i].code %>">
-					<div class = "container-book">
-							<img src = "<%= result[i].path_img %>"  width = "100" height = "100"/><br />
-							Title : <%= result[i].title %><br />
-							Author: <%= result[i].author %><br />
-							Year  : <%= result[i].year %><br />
-							Status: <%= result[i].rent_status %><br />
-						<br />
-					</div>
-				</a>
-			<% } %>
+			<a href = "/tes?w=asdadasd">
+				<div class = "container-book">
+						<img src = "<%= result[i].path_img %>"  width = "100" height = "100"/><br />
+						Title : <%= result[0].title %><br />
+						Author: <%= result[0].author %><br />
+						Year  : <%= result[0].year %><br />
+						Status: <%= result[0].rent_status %><br />
+					<br />
+					<a href = ""><button>Rent This Book</button></a>
+				</div>
+			</a>
 		</div>
 	</body>
 </html>

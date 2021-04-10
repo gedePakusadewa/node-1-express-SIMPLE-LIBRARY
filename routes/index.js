@@ -21,4 +21,6 @@ router.get('/book-list', controller.getBookListView);
 
 router.get('/add', controller.setDataBookList);
 
+router.get('/book-detail/:code', controller.getViewBookDetail);
+
 module.exports = router;

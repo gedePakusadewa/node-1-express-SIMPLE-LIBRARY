@@ -35,6 +35,23 @@ module.exports = {
 		.catch(err => {
 			console.log(err);
 		});
+	},
+
+	getViewBookDetail:function(req, res){
+		
+		bookList.find({req.params})
+		.then(result => {
+			//console.log(result);	
+			res.render('book-detail', {result: result})
+		})
+		.catch(err =>{
+			console.log(err);
+		});
+		
+		//var tes = req.params;
+		//console.log(tes['code']);
+			
 	}
+	
 
 };
