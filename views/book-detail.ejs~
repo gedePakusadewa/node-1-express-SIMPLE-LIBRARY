@@ -46,11 +46,7 @@
 						Year  : <%= result[0].year %><br />
 						Status: <%= result[0].rent_status %><br />
 					<br />
-					<% if(result[0].rent_status === false){%>
-						<a href = "/book-rent/<%= result[0].code %>"><button>Rent This Book</button></a>
-					<% } else{%>
-						<button disabled>Rent This Book</button>
-					<% } %>
+					<a href = ""><button>Rent This Book</button></a>
 				</div>
 			</a>
 		</div>

@@ -38,8 +38,8 @@ module.exports = {
 	},
 
 	getViewBookDetail:function(req, res){
-		
-		bookList.find({req.params})
+		var code = req.params;	
+		bookList.find({'code':code['code']})
 		.then(result => {
 			//console.log(result);	
 			res.render('book-detail', {result: result})
@@ -51,7 +51,17 @@ module.exports = {
 		//var tes = req.params;
 		//console.log(tes['code']);
 			
-	}
-	
+	},
 
+	getViewBookRent:function(req, res){
+		var code = req.params;
+		bookList.find({'code' : code['code']})
+		.then(result => {
+			res.render('rent-book', {result: result})
+		})
+		.catch(err =>{
+			consoloe.log(err);
+		});
+
+	}
 };

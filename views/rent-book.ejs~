@@ -26,19 +26,5 @@
 			<div><a href = "/about">About</a></div>
 			<div><a href = "/login">Login</a></div>
 		</nav>
-		<h1>Rent This Book</h1>
-		<div class = "flex-row" >
-			<div class = "container-book">
-					<img src = "<%= result[0].path_img %>"  width = "100" height = "100"/><br />
-					Title : <%= result[0].title %><br />
-					Author: <%= result[0].author %><br />
-					Year  : <%= result[0].year %><br />
-					Status: <%= result[0].rent_status %><br />
-				<br />
-			</div>
-		</div>
-		<form>
-
-		</form>
 	</body>
 </html>
