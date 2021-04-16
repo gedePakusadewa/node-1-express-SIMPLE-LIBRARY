@@ -8,8 +8,11 @@ const route = require('./routes/index');
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
-app.use('/', route);
+//app.use('/', route);
+app.use(bodyParser.urlencoded({ extended : false }));
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use('/', route);
 
 /*
 app.use('/tes', function(req, res){

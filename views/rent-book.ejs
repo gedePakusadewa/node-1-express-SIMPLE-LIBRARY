@@ -37,10 +37,10 @@
 				<br />
 			</div>
 		</div>
-		<form action = "/rent-book-save" method = "post">
+		<form action = "/rent-book-save/<%= result[0].code %>" method = "post">
 			Borrow Duration (in hour):
 			<input type = "text" name = "borrowDuration"><br />
-			<input type = submit value = "Rent Now">
+			<input type = "submit" value = "Rent Now">
 		</form>
 	</body>
 </html>

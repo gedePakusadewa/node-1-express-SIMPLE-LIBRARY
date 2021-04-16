@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bookList = require('../models/book-list');
 const db = require('../models/database');
-const bookRentList = require('../models/rent-book-list');
+const bookRentList = require('../models/rented-book-list');
 
 module.exports = {
 
@@ -67,8 +67,24 @@ module.exports = {
 	},
 
 	addBookRent:function(req, res){
+		//res.status(200).send(req.body.borrowDuration);
+		module.exports.getBookListView();
+		
+		/*	
+		var codeBook = req.params;
 		const dat = new bookRentList({
-			
+			code : codeBook['code'],
+			users : 'delta1',
+			duration: req.body.borrowDuration
 		});
+		
+		dat.save(dat)
+		.then(result => {
+			this.getBookListView(req, res);
+		})
+		.catch(err => {
+			console.log(err);
+		});
+		*/
 	}
 };

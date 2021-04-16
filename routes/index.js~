@@ -25,4 +25,6 @@ router.get('/book-detail/:code', controller.getViewBookDetail);
 
 router.get('/book-rent/:code', controller.getViewBookRent);
 
+router.post('/rent-book-save/:code', controller.addBookRent);
+
 module.exports = router;
