@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bookList = require('../models/book-list');
 const db = require('../models/database');
+const bookRentList = require('../models/rent-book-list');
 
 module.exports = {
 
@@ -63,5 +64,11 @@ module.exports = {
 			console.log(err);
 		});
 
+	},
+
+	addBookRent:function(req, res){
+		const dat = new bookRentList({
+			
+		});
 	}
 };

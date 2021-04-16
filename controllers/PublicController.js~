@@ -60,7 +60,7 @@ module.exports = {
 			res.render('rent-book', {result: result})
 		})
 		.catch(err =>{
-			consoloe.log(err);
+			console.log(err);
 		});
 
 	}
