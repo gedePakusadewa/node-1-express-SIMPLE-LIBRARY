@@ -66,11 +66,7 @@ module.exports = {
 
 	},
 
-	addBookRent:function(req, res){
-		//res.status(200).send(req.body.borrowDuration);
-		module.exports.getBookListView();
-		
-		/*	
+	addBookRent:function(req, res){	
 		var codeBook = req.params;
 		const dat = new bookRentList({
 			code : codeBook['code'],
@@ -80,11 +76,12 @@ module.exports = {
 		
 		dat.save(dat)
 		.then(result => {
-			this.getBookListView(req, res);
+			module.exports.getBookListView(req, res);
+			//this.getBookListView(req, res);
 		})
 		.catch(err => {
 			console.log(err);
 		});
-		*/
+		
 	}
 };
