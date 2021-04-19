@@ -74,6 +74,9 @@ module.exports = {
 			duration: req.body.borrowDuration
 		});
 		
+		module.exports.setStatusRentBook(codeBook['code']);
+
+
 		dat.save(dat)
 		.then(result => {
 			module.exports.getBookListView(req, res);
@@ -83,5 +86,15 @@ module.exports = {
 			console.log(err);
 		});
 		
+	},
+
+	setStatusRentBook:function(codeBook = "" ){
+		bookList.update({code : codeBook}, {rent_status : true})
+		.then(result =>{
+			console.log(result);
+		})
+		.catch(err => {
+			console.log(err);
+		});
 	}
 };
