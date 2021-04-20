@@ -1,6 +1,8 @@
 # A Simple Website For Library
 Its a self made project about simple library website that build using NODE.js, EXPRESS.js,
-HTML, and CSS.
+HTML, and CSS. 
+
+This website use template bootstrap 4 template from w3schools at https://www.w3schools.com/bootstrap4/bootstrap_templates.asp
 
 This website have feature:
 - Add book to "rent database"
