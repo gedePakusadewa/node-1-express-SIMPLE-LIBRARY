@@ -17,15 +17,16 @@ module.exports = {
 		})
 	},
 
+	//add random data to collections
 	setDataBookList:function(req, res){
 		const dat = new bookList({
-			code: "gt10de",
-			title: "Keyboard Is Mouse Owning Rig",
-			author: "Orale Dillale",
-			pages: "756",
-			year: "2017",
+			code: "q81isp",
+			title: "This Is Programmer!!!!",
+			author: "Sam Not Bed Thin",
+			pages: "23",
+			year: "2021",
 			rent_status: false,
-			path_img: "/cover/gt10de.jpg"
+			path_img: "/cover/q81isp.jpg"
 
 		});
 
@@ -42,16 +43,11 @@ module.exports = {
 		var code = req.params;	
 		bookList.find({'code':code['code']})
 		.then(result => {
-			//console.log(result);	
-			res.render('book-detail', {result: result})
+			res.status(200).render('book-detail', {result: result})
 		})
 		.catch(err =>{
 			console.log(err);
-		});
-		
-		//var tes = req.params;
-		//console.log(tes['code']);
-			
+		});			
 	},
 
 	getViewBookRent:function(req, res){
@@ -63,7 +59,6 @@ module.exports = {
 		.catch(err =>{
 			console.log(err);
 		});
-
 	},
 
 	addBookRent:function(req, res){	
@@ -74,8 +69,7 @@ module.exports = {
 			duration: req.body.borrowDuration
 		});
 		
-		module.exports.setStatusRentBook(codeBook['code']);
-
+		module.exports.setStatusRentBook(codeBook['code'], true);
 
 		dat.save(dat)
 		.then(result => {
@@ -85,13 +79,25 @@ module.exports = {
 		.catch(err => {
 			console.log(err);
 		});
-		
 	},
 
-	setStatusRentBook:function(codeBook = "" ){
-		bookList.update({code : codeBook}, {rent_status : true})
+	setStatusRentBook:function(codeBook = "", statusRent){
+		bookList.update({code : codeBook}, {rent_status : statusRent})
 		.then(result =>{
 			console.log(result);
+		})
+		.catch(err => {
+			console.log(err);
+		});
+	},
+
+	setDeleteRentBookData:function(req, res){
+		var code = req.params;
+		bookRentList.deleteOne({code : code['code']})
+		.then(result => {
+			console.log(result);
+			module.exports.setStatusRentBook(code['code'], false);
+			module.exports.getBookListView(req, res);
 		})
 		.catch(err => {
 			console.log(err);

@@ -27,4 +27,6 @@ router.get('/book-rent/:code', controller.getViewBookRent);
 
 router.post('/rent-book-save/:code', controller.addBookRent);
 
+router.get('/delete-book-rent-data/:code', controller.setDeleteRentBookData);
+
 module.exports = router;

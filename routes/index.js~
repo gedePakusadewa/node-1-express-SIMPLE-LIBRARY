@@ -27,4 +27,9 @@ router.get('/book-rent/:code', controller.getViewBookRent);
 
 router.post('/rent-book-save/:code', controller.addBookRent);
 
+router.get('/login', function(req, res){
+	console.log('login');
+	res.status(200).render('login');
+});
+
 module.exports = router;

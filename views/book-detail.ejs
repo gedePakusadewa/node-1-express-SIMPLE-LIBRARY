@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Library: Detail</title>
 		<meta charset = "utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+		</script>
 	</head>
-	<style>
-		*{
-			border-box:box-sizing;
-			margin: 0;
-			padding: 0;
-		}
-
-		nav{
-			display:flex;
-			flex-direction:row;
-		}
-
-		nav > div{
-			padding-right:10px;
-		}
-
-		.flex-row{
-			display:flex;
-			flex-direction:row;
-			margin-top:30px;
-		}
-
-		.container-book{
-			border:1px solid black;
-			margin:0 10px 0 0;
-		}
-	</style>
 	<body>
-		<nav>
-			<div><a href = "/home">Home</a></div>
-			<div><a href = "/book-list">Book List</a></div>
-			<div><a href = "/about">About</a></div>
-			<div><a href = "/login">Login</a></div>
-		</nav>
-		<div class = "flex-row" >
-			<div class = "container-book">
-					<img src = "<%= result[0].path_img %>"  width = "100" height = "100"/><br />
-					Title : <%= result[0].title %><br />
-					Author: <%= result[0].author %><br />
-					Year  : <%= result[0].year %><br />
-					Pages  : <%= result[0].pages %><br />
-					Status: <%= result[0].rent_status %><br />
-				<br />
-				<% if(result[0].rent_status === false){%>
-					<a href = "/book-rent/<%= result[0].code %>"><button>Rent This Book</button></a>
-				<% } else{%>
-					<button disabled>Rent This Book</button>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<a class="navbar-brand" href="/home">Library</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/book-list">Book List</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/about">About</a>
+					</li>   
+				</ul>
+			</div>  
+		</nav>	
+		<div class = "container py-5" >
+			<div class = "text-center pb-3" >
+				<img src = "<%= result[0].path_img %>" width = "300" height = "300"/>
+			</div>
+			<div>
+				<h3><%= result[0].title %></h3>
+				Created by <%= result[0].author %><br />
+				Publish at <%= result[0].year %><br />
+				<%= result[0].pages %> pages<br />
+				<% if(result[0].rent_status === false){ %>
+					<span class="text-success">Available</span><br />
+				<% }else{ %>
+					<span class="text-warning">Not Available</span><br />
+				<% } %>
+
+			</div>
+			<div class = "text-center">
+				<% if(result[0].rent_status === false){ %>
+					<a href = "/book-rent/<%= result[0].code %>" class="btn btn-primary">Rent This Book</a>
+				<% }else{ %>
+					<a href = "/delete-book-rent-data/<%= result[0].code %>" class="btn btn-primary">Return This Book</a>
 				<% } %>
 			</div>
+		</div>
+		<div class = "bg-secondary text-white text-center py-1" style="">
+		 	<p>Copyright 1999-2021 by Libray. All Rights Reserved.</p>
 		</div>
 	</body>
 </html>

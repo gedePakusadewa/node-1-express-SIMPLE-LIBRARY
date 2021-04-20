@@ -29,9 +29,6 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="/about">About</a>
 		      </li>   
-		      <li class="nav-item">
-		        <a class="nav-link" href="/login">Login</a>
-		      </li>  
 		    </ul>
 		  </div>  
 		</nav>	
@@ -39,16 +36,20 @@
 		<div class="container py-4">
 			<h3>Our Latest Books</h3>
 		</div>
-		<div class = "container d-flex flex-row pb-5">
+		<div class = "container d-flex flex-row flex-wrap pb-5">
 			<% for(var i = 0; i < result.length; i++) { %>
-				<div class = "pr-3">
+				<div class = "pr-3 pt-3">
 				<div class="card " style="width:250px">
 					<img class="card-img-top" src="<%= result[i].path_img %>" alt="book" style="width:100%" />
 					<div class="card-body">
 						<h4 class="card-title"><%= result[i].title %></h4>
 						<span class=""><%= result[i].year %></span><br />
 						<span class="">By <%= result[i].author %></span><br />
-						<span class=""><%= result[i].rent_status %></span><br />
+						<% if(result[i].rent_status === false){ %>
+							<span class="text-success">Available</span><br />
+						<% } else{ %>
+							<span class="text-warning">Not Available</span><br />
+						<% } %>
 						<a href="/book-detail/<%= result[i].code %>" class="btn btn-primary stretched-link">Detail</a>
 					</div>
 				</div>

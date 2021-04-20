@@ -74,7 +74,7 @@ module.exports = {
 			duration: req.body.borrowDuration
 		});
 		
-		module.exports.setStatusRentBook(codeBook);
+		module.exports.setStatusRentBook(codeBook['code']);
 
 
 		dat.save(dat)
@@ -88,7 +88,7 @@ module.exports = {
 		
 	},
 
-	setStatusRentBook:function(codeBook){
+	setStatusRentBook:function(codeBook = "" ){
 		bookList.update({code : codeBook}, {rent_status : true})
 		.then(result =>{
 			console.log(result);
